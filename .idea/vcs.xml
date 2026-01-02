@@ -3,8 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/MyFabricMod" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/MyFabricMod.bak" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/MyFabricMod.bak.20260102104725" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NimrodHeroBrainMod" vcs="Git" />
   </component>
 </project>
