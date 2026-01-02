@@ -5,22 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>תיעוד תוסף Minecraft — Hero Brains</title>
   <style>
-    body { font-family: Arial, "Segoe UI", Tahoma, sans-serif; line-height: 1.6; margin: 2rem; background:#f8f9fb; color:#111; }
+    body { font-family: Arial, "Segoe UI", Tahoma, sans-serif; line-height: 1.6; margin: 2rem; background: linear-gradient(135deg,#0ea5a4 0%, #60a5fa 100%); color:#0f172a; }
     header { margin-bottom: 1rem; }
-    h1 { margin: 0 0 0.25rem 0; }
-    .card { background: #fff; padding: 1rem 1.25rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 1rem; }
+    h1 { margin: 0 0 0.25rem 0; color:#fff; text-shadow:0 1px 0 rgba(0,0,0,0.15); }
+    .card { background: linear-gradient(180deg,#ffffffee,#f0f9ffcc); padding: 1rem 1.25rem; border-radius: 12px; box-shadow: 0 6px 20px rgba(2,6,23,0.2); margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.35); }
     ul { margin: 0.5rem 0 0 1.25rem; }
-    code { background: #eef2f7; padding: 0.1rem 0.3rem; border-radius: 4px; }
-    footer { margin-top: 1rem; color:#555; font-size:0.9rem; }
+    code { background: #0f172a; color:#e6eef8; padding: 0.1rem 0.3rem; border-radius: 4px; }
+    footer { margin-top: 1rem; color:#e6f2ff; font-size:0.95rem; }
 
     /* נוספו סגנונות לאיורים */
     .illustration { display: flex; gap: 1rem; align-items: center; margin-top: 0.75rem; }
-    .illustration .box { background:#f1f5f9; border-radius:8px; padding:0.6rem; display:flex; flex-direction:column; align-items:center; width:180px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
-    .illustration svg { width:64px; height:64px; }
-    .illustration .caption { margin-top:0.5rem; font-size:0.95rem; color:#222; text-align:center; }
+    .illustration .box { background: linear-gradient(180deg,#ffffff,#f7fbff); border-radius:12px; padding:0.6rem; display:flex; flex-direction:column; align-items:center; width:200px; box-shadow: 0 4px 12px rgba(2,6,23,0.12); border:1px solid rgba(10,10,10,0.04); }
+    .illustration img { width:72px; height:72px; }
+    .illustration .caption { margin-top:0.5rem; font-size:0.95rem; color:#0f172a; text-align:center; }
+
+    /* כותרות צבעוניות */
+    h2 { color:#073b4c; }
 
     /* התאמה לנייד */
-    @media (max-width:520px) { .illustration { flex-direction:column; gap:0.5rem; } .illustration .box{width:100%;} }
+    @media (max-width:720px) { .illustration { flex-direction:column; gap:0.5rem; } .illustration .box{width:100%;} }
   </style>
 </head>
 <body>
@@ -44,6 +47,14 @@
         <div class="box" role="img" aria-label="מקש H - החלפה למצב Hero Brains">
           <img src="images/key-h.svg" alt="מקש H" style="width:64px;height:64px;">
           <div class="caption">לחץ <strong>H</strong> כדי לעבור ל־Hero Brains</div>
+        </div>
+
+        <div class="box" role="img" aria-label="Hero Brains - מצב גיבור">
+          <picture>
+            <source srcset="images/hero-brain.webp" type="image/webp">
+            <img src="images/hero-brain.svg" alt="Hero Brains" style="width:72px;height:72px;">
+          </picture>
+          <div class="caption">מצב <strong>Hero Brains</strong></div>
         </div>
 
         <div class="box" role="img" aria-label="בלתי ניתן לנזק מברק בזמן מצב">
