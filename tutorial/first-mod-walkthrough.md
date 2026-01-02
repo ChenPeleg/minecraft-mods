@@ -4,6 +4,7 @@ Audience: you know JavaScript/Python and want to add one tiny feature to a Minec
 
 ## Goal
 Add a super simple feature: a custom item that says hello in chat when you right-click it. This mirrors adding a small function in JS or a command in Python.
+> Note: This walkthrough uses the **Fabric** mod loader (`ModInitializer`). If you picked Forge, the class shape is different (`@Mod` entry point) but the ideas still apply.
 
 ## Step 1: Understand the folders
 - `src/main/java/` — Java source files (like `src/` in Node projects).
@@ -31,8 +32,18 @@ public class MyMod implements ModInitializer {
 Think of `onInitialize` as `main()` in Python or the top-level `init()` in a small JS script.
 
 ## Step 3: Register a simple item
-Add this inside the `com.example.mymod` package:
+Add this inside the `com.example.mymod` package (create `HelloItem.java` next to `MyMod.java`). The imports are included so you can copy/paste:
 ```java
+package com.example.mymod;
+
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.world.World;
+
 public class HelloItem extends Item {
     public HelloItem(Settings settings) {
         super(settings);
@@ -41,6 +52,7 @@ public class HelloItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient) {
+            // Server-side check so the message appears only once
             user.sendMessage(Text.literal("Hello from your first mod!"), false);
         }
         return super.use(world, user, hand);
@@ -50,24 +62,42 @@ public class HelloItem extends Item {
 - `@Override` is like redefining a method in a subclass in Python.
 - `Text.literal` builds the chat message.
 
-Register the item during `onInitialize`:
+Register the item during `onInitialize` **inside the `MyMod` class from Step 2**. Add these imports to the import section at the top of `MyMod.java`:
 ```java
-public static final Item HELLO_ITEM = new HelloItem(new Item.Settings());
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
+import net.minecraft.item.Item;
+```
+Then add the field and initialization in the class body:
+```java
+public class MyMod implements ModInitializer {
+    public static final String MOD_ID = "mymod";
+    // New: declare your item
+    public static final Item HELLO_ITEM = new HelloItem(new Item.Settings());
 
-public void onInitialize() {
-    Registry.register(Registries.ITEM, new Identifier(MOD_ID, "hello_item"), HELLO_ITEM);
+    @Override
+    public void onInitialize() {
+        // New: register the item so Minecraft knows about it
+        Registry.register(Registries.ITEM, new Identifier(MOD_ID, "hello_item"), HELLO_ITEM);
+    }
 }
 ```
 
 ## Step 4: Add the item JSON
 Create `src/main/resources/assets/mymod/models/item/hello_item.json`:
 ```json
-{ "parent": "minecraft:item/generated", "textures": { "layer0": "mymod:item/hello_item" } }
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mymod:item/hello_item"
+  }
+}
 ```
-Add a 16×16 PNG at `src/main/resources/assets/mymod/textures/item/hello_item.png`. (You can reuse any small square image while learning.)
+Add a 16×16 PNG at `src/main/resources/assets/mymod/textures/item/hello_item.png`. (A solid-color 16×16 square from any paint tool works fine while learning; you can also draw one in any pixel-art editor.)
 
 ## Step 5: Build and try it
-1. Run `gradle build`.
+1. Run `./gradlew build` (preferred because the wrapper script downloads and locks the right Gradle version for the project). If your project template did not include the wrapper scripts, install Gradle and use `gradle build` instead.
 2. Copy the resulting JAR from `build/libs/` into your Minecraft `mods` folder.
 3. Launch the game, open a world, and give yourself the item with `/give @p mymod:hello_item`.
 4. Right-click with the item; you should see the chat message.
