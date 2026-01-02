@@ -12,6 +12,15 @@
     ul { margin: 0.5rem 0 0 1.25rem; }
     code { background: #eef2f7; padding: 0.1rem 0.3rem; border-radius: 4px; }
     footer { margin-top: 1rem; color:#555; font-size:0.9rem; }
+
+    /* נוספו סגנונות לאיורים */
+    .illustration { display: flex; gap: 1rem; align-items: center; margin-top: 0.75rem; }
+    .illustration .box { background:#f1f5f9; border-radius:8px; padding:0.6rem; display:flex; flex-direction:column; align-items:center; width:180px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+    .illustration svg { width:64px; height:64px; }
+    .illustration .caption { margin-top:0.5rem; font-size:0.95rem; color:#222; text-align:center; }
+
+    /* התאמה לנייד */
+    @media (max-width:520px) { .illustration { flex-direction:column; gap:0.5rem; } .illustration .box{width:100%;} }
   </style>
 </head>
 <body>
@@ -29,7 +38,26 @@
     <h2>אופן שימוש</h2>
     <ol>
       <li>כשאתה נכנס לשרת/עולם, יופיע לך הודעה (בעברית/באנגלית או בשפה של מיינקראפט) שמסבירה את התוסף ואת המקש להפעלה.</li>
-      <li>לחץ על מקש המקלדת שיבליט אותך או יהפוך אותך ל־<strong>Hero Brains</strong> (ברירת מחדל: <code>H</code>). המקש בר־הגדרה וניתן לשנותו בקובץ התצורה של התוסף.</li>
+      <li>לחץ על מקש המקלדת שיבליט אותך או יהפוך אותך ל־<strong>Hero Brains</strong> (ברירת מחדל: <code>H</code>). המקש בר־הגדרה וניתן לשנותו בקובץ התצורה של התוסף.
+      <!-- הוספת איור מקש -->
+      <div class="illustration" aria-hidden="false">
+        <div class="box" role="img" aria-label="מקש H - החלפה למצב Hero Brains">
+          <img src="images/key-h.svg" alt="מקש H" style="width:64px;height:64px;">
+          <div class="caption">לחץ <strong>H</strong> כדי לעבור ל־Hero Brains</div>
+        </div>
+
+        <div class="box" role="img" aria-label="בלתי ניתן לנזק מברק בזמן מצב">
+          <img src="images/lightning-safe.svg" alt="ברק פוגע בשחקן ללא נזק" style="width:64px;height:64px;">
+          <div class="caption">נזק מברק לא מוריד חיים בזמן מצב</div>
+        </div>
+
+        <div class="box" role="img" aria-label="לחיצה ימנית ביד ריקה לזימון ברק">
+          <img src="images/right-click.svg" alt="right-click" style="width:64px;height:64px;">
+          <div class="caption">לחץ לחצן ימני ביד ריקה לצורך זימון ברק</div>
+        </div>
+      </div>
+      </li>
+
       <li>לאחר שהפכת ל־Hero Brains, ניתן:<ul>
         <li>לקבל מכה של ברק — הברק פוגע, אבל לא מוריד ממך חיים (אפשר לשמור השפעות אחרות כמו התבטלות אש או אפקטים לפי ההגדרות).</li>
         <li>לייצר ברק באופן פעיל — לחץ לחצן ימני בעכבר (right-click) כאשר אינך מחזיק בלוק כדי לזמן ברק במקום המטרה.</li>
