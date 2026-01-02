@@ -1,8 +1,0 @@
-// Root settings for the multi-project Gradle build
-rootProject.name = 'minecraft-mods'
-
-// Include existing subprojects here
-include 'example-loom'
-
-// If you add more subprojects, add additional include lines, for example:
-// include 'some-other-module'
