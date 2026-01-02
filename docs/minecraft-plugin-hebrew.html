@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>תיעוד תוסף Minecraft — Hero Brains</title>
+  <style>
+    body { font-family: Arial, "Segoe UI", Tahoma, sans-serif; line-height: 1.6; margin: 2rem; background:#f8f9fb; color:#111; }
+    header { margin-bottom: 1rem; }
+    h1 { margin: 0 0 0.25rem 0; }
+    .card { background: #fff; padding: 1rem 1.25rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 1rem; }
+    ul { margin: 0.5rem 0 0 1.25rem; }
+    code { background: #eef2f7; padding: 0.1rem 0.3rem; border-radius: 4px; }
+    footer { margin-top: 1rem; color:#555; font-size:0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>תוסף: Hero Brains</h1>
+    <p>תיעוד קצר בעברית — כיצד להשתמש בתוסף שמוסיף אפשרות להפוך ל־"Hero Brains" ולקרוא לברקים מבלי שנפגעים.</p>
+  </header>
+
+  <section class="card">
+    <h2>תקציר</h2>
+    <p>התוסף מוסיף מצב שבו כשאתה "במצב Hero Brains" פוגע בך ברק אך הוא לא מוריד לך חיים. בנוסף, ניתן ליצור ברק בעצמך בעזרת לחיצה ימנית (right-click) כאשר אתה לא מחזיק בלוק.</p>
+  </section>
+
+  <section class="card">
+    <h2>אופן שימוש</h2>
+    <ol>
+      <li>כשאתה נכנס לשרת/עולם, יופיע לך הודעה (בעברית/באנגלית או בשפה של מיינקראפט) שמסבירה את התוסף ואת המקש להפעלה.</li>
+      <li>לחץ על מקש המקלדת שיבליט אותך או יהפוך אותך ל־<strong>Hero Brains</strong> (ברירת מחדל: <code>H</code>). המקש בר־הגדרה וניתן לשנותו בקובץ התצורה של התוסף.</li>
+      <li>לאחר שהפכת ל־Hero Brains, ניתן:<ul>
+        <li>לקבל מכה של ברק — הברק פוגע, אבל לא מוריד ממך חיים (אפשר לשמור השפעות אחרות כמו התבטלות אש או אפקטים לפי ההגדרות).</li>
+        <li>לייצר ברק באופן פעיל — לחץ לחצן ימני בעכבר (right-click) כאשר אינך מחזיק בלוק כדי לזמן ברק במקום המטרה.</li>
+      </ul></li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>מאפיינים</h2>
+    <ul>
+      <li>מצב מיוחד "Hero Brains" שמגן מפני נזק של ברק.</li>
+      <li>זימון ברק על ידי לחיצה ימנית כשהיד ריקה.</li>
+      <li>הודעות כניסה שמנחות את השחקן (ניתנות לתרגום/התאמה).</li>
+      <li>מקש הפעלה ברירת מחדל שניתן לשנות (להגדיר בקובץ config של התוסף).</li>
+      <li>אפשרויות קונפיגורציה: האם הברק יגרום לאפקטים נוספים (להכות שחקנים אחרים/לשרוף בלוקים), האם הברק ישמיע קול, ורמות הרשאה.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>הנחיות התקנה קצרות (Server-side plugin)</h2>
+    <ol>
+      <li>העתק את קובץ התוסף (JAR) לתיקיית <code>plugins/</code> בשרת ה־Minecraft שלך.</li>
+      <li>הפעל/הדלק את השרת; בעת ההפעלה ייווצר קובץ קונפיגורציה בתיקיית התוסף.</li>
+      <li>במידת הצורך שנה את מקש ההפעלה (ברירת מחדל: <code>H</code>) ואת ההגדרות של נזק ברק/אפקטים בקובץ ה־config.</li>
+      <li>אתה מוכן — הצטרף לשרת ולחץ על המקש כדי להפעיל מצב Hero Brains.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>הנחות (שחשוב לדעת)</h2>
+    <ul>
+      <li>הנחתי ברירת מחדל שהמקש לשינוי מצב יהיה <code>H</code>. אם תרצה מפתח/מימוש ספציפי (למשל שימוש במוד Client-side או keybind ספציפי), ציין זאת ואעדכן.</li>
+      <li>כאשר אומרים "לחצן ימני" הכוונה היא ל־right-click בעכבר; התכונה פעילה רק כאשר היד ריקה (לא מוחזק בלוק).</li>
+      <li>התוסף יכול לפעול כ־Server plugin (למשל Bukkit/Spigot/Paper). מימוש Client-side ידרוש מוד אחר.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>רוצה שאצור גם דוגמת קוד של התוסף (ל־Spigot/Paper) או קובץ קונפיגורציה לדוגמה? תגיד לי ונוסיף קבצים נוספים לפרויקט.</p>
+  </footer>
+</body>
+</html>
