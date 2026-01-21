@@ -1,113 +1,277 @@
 <!doctype html>
 <html lang="he" dir="rtl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>תיעוד תוסף Minecraft — Nimrod_Herobrain</title>
-  <style>
-    body { font-family: Arial, "Segoe UI", Tahoma, sans-serif; line-height: 1.6; margin: 2rem; background: linear-gradient(135deg,#0ea5a4 0%, #60a5fa 100%); color:#0f172a; }
-    header { margin-bottom: 1rem; }
-    h1 { margin: 0 0 0.25rem 0; color:#fff; text-shadow:0 1px 0 rgba(0,0,0,0.15); }
-    .card { background: linear-gradient(180deg,#ffffffee,#f0f9ffcc); padding: 1rem 1.25rem; border-radius: 12px; box-shadow: 0 6px 20px rgba(2,6,23,0.2); margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.35); }
-    ul { margin: 0.5rem 0 0 1.25rem; }
-    code { background: #0f172a; color:#e6eef8; padding: 0.1rem 0.3rem; border-radius: 4px; }
-    footer { margin-top: 1rem; color:#e6f2ff; font-size:0.95rem; }
 
-    /* נוספו סגנונות לאיורים */
-    .illustration { display: flex; gap: 1rem; align-items: center; margin-top: 0.75rem; }
-    .illustration .box { background: linear-gradient(180deg,#ffffff,#f7fbff); border-radius:12px; padding:0.6rem; display:flex; flex-direction:column; align-items:center; width:200px; box-shadow: 0 4px 12px rgba(2,6,23,0.12); border:1px solid rgba(10,10,10,0.04); }
-    .illustration img { width:72px; height:72px; }
-    .illustration .caption { margin-top:0.5rem; font-size:0.95rem; color:#0f172a; text-align:center; }
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>תיעוד תוסף Minecraft — Nimrod_Herobrain</title>
+    <style>
+      body {
+        font-family: Arial, "Segoe UI", Tahoma, sans-serif;
+        line-height: 1.6;
+        margin: 2rem;
+        background: linear-gradient(135deg, #0ea5a4 0%, #60a5fa 100%);
+        color: #0f172a;
+      }
 
-    /* כותרות צבעוניות */
-    h2 { color:#073b4c; }
+      header {
+        margin-bottom: 1rem;
+      }
 
-    /* התאמה לנייד */
-    @media (max-width:720px) { .illustration { flex-direction:column; gap:0.5rem; } .illustration .box{width:100%;} }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>תוסף: Nimrod_Herobrain</h1>
-    <p>תיעוד קצר בעברית — כיצד להשתמש בתוסף שמוסיף אפשרות להפוך ל־"Nimrod_Herobrain" ולקרוא לברקים מבלי שנפגעים.</p>
-  </header>
+      h1 {
+        margin: 0 0 0.25rem 0;
+        color: #fff;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+      }
 
-  <section class="card">
-    <h2>תקציר</h2>
-    <p>התוסף מוסיף מצב שבו כשאתה "במצב Nimrod_Herobrain" פוגע בך ברק אך הוא לא מוריד לך חיים. בנוסף, ניתן ליצור ברק בעצמך בעזרת לחיצה ימנית (right-click) כאשר אתה לא מחזיק בלוק.</p>
-  </section>
+      .card {
+        background: linear-gradient(180deg, #ffffffee, #f0f9ffcc);
+        padding: 1rem 1.25rem;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(2, 6, 23, 0.2);
+        margin-bottom: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+      }
 
-  <section class="card">
-    <h2>אופן שימוש</h2>
-    <ol>
-      <li>כשאתה נכנס לשרת/עולם, יופיע לך הודעה (בעברית/באנגלית או בשפה של מיינקראפט) שמסבירה את התוסף ואת המקש להפעלה.</li>
-      <li>לחץ על מקש המקלדת שיבליט אותך או יהפוך אותך ל־<strong>Nimrod_Herobrain</strong> (ברירת מחדל: <code>H</code>). המקש בר־הגדרה וניתן לשנותו בקובץ התצורה של התוסף.
-      <!-- הוספת איור מקש -->
-      <div class="illustration" aria-hidden="false">
-        <div class="box" role="img" aria-label="מקש H - החלפה למצב Hero Brains">
-          <img src="images/key-h.svg" alt="מקש H" style="width:64px;height:64px;">
-          <div class="caption">לחץ <strong>H</strong> כדי לעבור ל־Nimrod_Herobrain</div>
-        </div>
+      ul {
+        margin: 0.5rem 0 0 1.25rem;
+      }
 
-        <div class="box" role="img" aria-label="Nimrod_Herobrain - מצב גיבור">
-          <picture>
-            <source srcset="images/Herobrine.webp" type="image/webp">
-            <img src="images/Herobrine.svg" alt="Nimrod_Herobrain" style="width:72px;height:72px;">
-          </picture>
-          <div class="caption">מצב <strong>Nimrod_Herobrain</strong></div>
-        </div>
+      code {
+        background: #0f172a;
+        color: #e6eef8;
+        padding: 0.1rem 0.3rem;
+        border-radius: 4px;
+      }
 
-        <div class="box" role="img" aria-label="בלתי ניתן לנזק מברק בזמן מצב">
-          <img src="images/lightning-safe.svg" alt="ברק פוגע בשחקן ללא נזק" style="width:64px;height:64px;">
-          <div class="caption">נזק מברק לא מוריד חיים בזמן מצב</div>
-        </div>
+      footer {
+        margin-top: 1rem;
+        color: #e6f2ff;
+        font-size: 0.95rem;
+      }
 
-        <div class="box" role="img" aria-label="לחיצה ימנית ביד ריקה לזימון ברק">
-          <img src="images/right-click.svg" alt="right-click" style="width:64px;height:64px;">
-          <div class="caption">לחץ לחצן ימני ביד ריקה לצורך זימון ברק</div>
-        </div>
+      /* נוספו סגנונות לאיורים */
+      .illustration {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin-top: 0.75rem;
+      }
+
+      .illustration .box {
+        background: linear-gradient(180deg, #ffffff, #f7fbff);
+        border-radius: 12px;
+        padding: 0.6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 200px;
+        box-shadow: 0 4px 12px rgba(2, 6, 23, 0.12);
+        border: 1px solid rgba(10, 10, 10, 0.04);
+      }
+
+      .illustration img {
+        width: 72px;
+        height: 72px;
+      }
+
+      .illustration .caption {
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+        color: #0f172a;
+        text-align: center;
+      }
+
+      /* כותרות צבעוניות */
+      h2 {
+        color: #073b4c;
+      }
+
+      /* התאמה לנייד */
+      @media (max-width:720px) {
+        .illustration {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .illustration .box {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>תוסף: Nimrod_Herobrain</h1>
+      <p>תיעוד קצר בעברית — כיצד להשתמש בתוסף שמוסיף אפשרות להפוך ל־"Nimrod_Herobrain" ולקרוא לברקים מבלי שנפגעים.</p>
+    </header>
+
+    <section class="card">
+      <h2>תקציר</h2>
+      <p>התוסף מוסיף מצב שבו כשאתה "במצב Nimrod_Herobrain" פוגע בך ברק אך הוא לא מוריד לך חיים. בנוסף, ניתן ליצור ברק
+        בעצמך בעזרת לחיצה ימנית (right-click) כאשר אתה לא מחזיק בלוק.</p>
+    </section>
+
+    <section class="card">
+      <h2>אופן שימוש</h2>
+      <ol>
+        <li>כשאתה נכנס לשרת/עולם, יופיע לך הודעה (בעברית/באנגלית או בשפה של מיינקראפט) שמסבירה את התוסף ואת המקש להפעלה.
+        </li>
+        <li>לחץ על מקש המקלדת שיבליט אותך או יהפוך אותך ל־<strong>Nimrod_Herobrain</strong> (ברירת מחדל:
+          <code>H</code>). המקש בר־הגדרה וניתן לשנותו בקובץ התצורה של התוסף.
+          <!-- הוספת איור מקש -->
+          <div class="illustration" aria-hidden="false">
+            <div class="box" role="img" aria-label="מקש H - החלפה למצב Hero Brains">
+              <img src="images/key-h.svg" alt="מקש H" style="width:64px;height:64px;">
+              <div class="caption">לחץ <strong>H</strong> כדי לעבור ל־Nimrod_Herobrain</div>
+            </div>
+
+            <div class="box" role="img" aria-label="Nimrod_Herobrain - מצב גיבור">
+              <picture>
+                <source srcset="images/Herobrine.webp" type="image/webp">
+                <img src="images/Herobrine.svg" alt="Nimrod_Herobrain" style="width:72px;height:72px;">
+              </picture>
+              <div class="caption">מצב <strong>Nimrod_Herobrain</strong></div>
+            </div>
+
+            <div class="box" role="img" aria-label="בלתי ניתן לנזק מברק בזמן מצב">
+              <img src="images/lightning-safe.svg" alt="ברק פוגע בשחקן ללא נזק" style="width:64px;height:64px;">
+              <div class="caption">נזק מברק לא מוריד חיים בזמן מצב</div>
+            </div>
+
+            <div class="box" role="img" aria-label="לחיצה ימנית ביד ריקה לזימון ברק">
+              <img src="images/right-click.svg" alt="right-click" style="width:64px;height:64px;">
+              <div class="caption">לחץ לחצן ימני ביד ריקה לצורך זימון ברק</div>
+            </div>
+          </div>
+        </li>
+
+        <li>לאחר שהפכת ל־Nimrod_Herobrain, ניתן:<ul>
+            <li>לקבל מכה של ברק — הברק פוגע, אבל לא מוריד ממך חיים (אפשר לשמור השפעות אחרות כמו התבטלות אש או אפקטים לפי
+              ההגדרות).</li>
+            <li>לייצר ברק באופן פעיל — לחץ לחצן ימני בעכבר (right-click) כאשר אינך מחזיק בלוק כדי לזמן ברק במקום המטרה.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>מאפיינים</h2>
+      <ul>
+        <li>מצב מיוחד "Nimrod_Herobrain" שמגן מפני נזק של ברק.</li>
+        <li>זימון ברק על ידי לחיצה ימנית כשהיד ריקה.</li>
+        <li>הודעות כניסה שמנחות את השחקן (ניתנות לתרגום/התאמה).</li>
+        <li>מקש הפעלה ברירת מחדל שניתן לשנות (להגדיר בקובץ config של התוסף).</li>
+        <li>אפשרויות קונפיגורציה: האם הברק יגרום לאפקטים נוספים (להכות שחקנים אחרים/לשרוף בלוקים), האם הברק ישמיע קול,
+          ורמות הרשאה.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>הנחיות התקנה קצרות (Server-side plugin)</h2>
+      <ol>
+        <li>העתק את קובץ התוסף (JAR) לתיקיית <code>plugins/</code> בשרת ה־Minecraft שלך.</li>
+        <li>הפעל/הדלק את השרת; בעת ההפעלה ייווצר קובץ קונפיגורציה בתיקיית התוסף.</li>
+        <li>במידת הצורך שנה את מקש ההפעלה (ברירת מחדל: <code>H</code>) ואת ההגדרות של נזק ברק/אפקטים בקובץ ה־config.
+        </li>
+        <li>אתה מוכן — הצטרף לשרת ולחץ על המקש כדי להפעיל מצב Nimrod_Herobrain.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>הנחות (שחשוב לדעת)</h2>
+      <ul>
+        <li>הנחתי ברירת מחדל שהמקש לשינוי מצב יהיה <code>H</code>. אם תרצה מפתח/מימוש ספציפי (למשל שימוש במוד
+          Client-side או keybind ספציפי), ציין זאת ואעדכן.</li>
+        <li>כאשר אומרים "לחצן ימני" הכוונה היא ל־right-click בעכבר; התכונה פעילה רק כאשר היד ריקה (לא מוחזק בלוק).</li>
+        <li>התוסף יכול לפעול כ־Server plugin (למשל Bukkit/Spigot/Paper). מימוש Client-side ידרוש מוד אחר.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>איך להתקין את Fabric Loader במיינקראפט שלך? 🎮</h2>
+      <p>כדי להשתמש במודים (תוספות) של Fabric במיינקראפט, צריך קודם להתקין תוכנה מיוחדת שנקראת <strong>Fabric
+          Loader</strong>. זה ממש פשוט!</p>
+
+      <h3>שלב 1: הורדת התוכנה</h3>
+      <ol>
+        <li>כנס לאתר: <code>https://fabricmc.net/use/installer/</code></li>
+        <li>תלחץ על כפתור ההורדה (Download) — זה יוריד קובץ קטן לכונן שלך.</li>
+      </ol>
+
+      <h3>שלב 2: הפעלת ההתקנה</h3>
+      <ol>
+        <li>פתח את הקובץ שהורדת (הוא ייראה כמו <code>fabric-installer.exe</code> או <code>fabric-installer.jar</code>).
+        </li>
+        <li>יפתח חלון קטן — תבחר בלשונית <strong>"Client"</strong> (זה אומר שאתה מתקין למשחק שלך ולא לשרת).</li>
+        <li>תבחר את גרסת המיינקראפט שאתה משחק בה (למשל <code>1.21.11</code>).</li>
+        <li>תבחר את גרסת ה־Loader (למשל <code>0.18.4</code>) — בדרך כלל זה כבר מסומן בשבילך!</li>
+        <li>תלחץ על כפתור <strong>"Install"</strong> (התקן) וחכה רגע קטן.</li>
+        <li>כשיופיע הודעה שההתקנה הצליחה — סגור את החלון. יש!</li>
+      </ol>
+
+      <h3>שלב 3: הפעלת המיינקראפט עם Fabric</h3>
+      <ol>
+        <li>פתח את המיינקראפט Launcher (התוכנה שבה אתה פותח את המשחק).</li>
+        <li>בחלק העליון, ליד כפתור "Play", יש תפריט קטן — לחץ עליו.</li>
+        <li>תבחר את הפרופיל שנקרא <strong>"fabric-loader-1.21.11"</strong> (או הגרסה שהתקנת).</li>
+        <li>עכשיו תלחץ על <strong>"Play"</strong> והמשחק יפתח עם Fabric!</li>
+      </ol>
+
+      <h3>שלב 4: הוספת המוד שלך למשחק 🎉</h3>
+      <ol>
+        <li>קודם כל, צריך לבנות את המוד שלך. פתח את התיקייה <code>example-loom</code> בפרויקט שלך.</li>
+        <li>הרץ את הפקודה <code>gradlew build</code> (במחשב Windows — תלחץ פעמיים על הקובץ <code>gradlew.bat</code> או
+          תפתח CMD ותכתוב את זה).</li>
+        <li>חכה שהבנייה תסתיים — זה ייצור קובץ JAR של המוד שלך בתיקייה <code>example-loom\build\libs\</code>.</li>
+        <li>עכשיו תעתיק את קובץ ה־JAR הזה.</li>
+        <li>פתח את התיקייה של המיינקראפט:
+          <ul>
+            <li>לחץ על מקש <strong>Windows + R</strong></li>
+            <li>תכתוב: <code>%APPDATA%\.minecraft</code></li>
+            <li>תלחץ Enter</li>
+          </ul>
+        </li>
+        <li>אם אין תיקייה בשם <code>mods</code> — צור אותה (לחיצה ימנית → חדש → תיקייה).</li>
+        <li>העתק את קובץ המוד שלך לתוך התיקייה <code>mods</code>.</li>
+        <li>עכשיו פשוט תפעיל את המיינקראפט (עם הפרופיל של Fabric) והמוד שלך יעבוד! 🎊</li>
+      </ol>
+
+      <h3>שלב 5 (אופציונלי): הורדת Fabric API</h3>
+      <p>הרבה מודים צריכים גם את Fabric API כדי לעבוד. זה עוד קובץ JAR שצריך להוסיף:</p>
+      <ol>
+        <li>כנס לאתר <code>https://modrinth.com/mod/fabric-api</code> או
+          <code>https://www.curseforge.com/minecraft/mc-mods/fabric-api</code>
+        </li>
+        <li>תוריד את הגרסה המתאימה לגרסת המיינקראפט שלך (למשל <code>0.140.2+1.21.11</code>).</li>
+        <li>העתק את הקובץ הזה גם לתיקיית <code>mods</code>.</li>
+        <li>זהו! עכשיו יש לך גם את Fabric API.</li>
+      </ol>
+
+      <h3>🔧 פתרון בעיות: אם המוד לא נטען</h3>
+      <p>אם המוד של Fabric לא נטען או לא עובד כמו שצריך, נסה את זה:</p>
+      <ol>
+        <li>סגור את המיינקראפט לחלוטין.</li>
+        <li>פתח את תיקיית ה־<code>mods</code> (באמצעות <code>%APPDATA%\.minecraft\mods</code>).</li>
+        <li><strong>מחק את כל המודים שמותקנים</strong> בתיקייה (או העבר אותם לתיקייה אחרת לגיבוי).</li>
+        <li>השאר <strong>רק את Fabric API</strong> בתיקיית <code>mods</code>.</li>
+        <li>הפעל את המשחק שוב ובדוק אם Fabric עובד.</li>
+        <li>אם זה עובד — תוכל להוסיף בחזרה את המודים שלך אחד אחד כדי לזהות את המוד שגורם לבעיה.</li>
+      </ol>
+
+      <div
+        style="background:#e0f2fe; padding:0.75rem; border-radius:8px; margin-top:1rem; border-right:4px solid #0284c7;">
+        <strong>💡 טיפ חשוב:</strong> כל פעם שאתה מוריד מוד חדש, פשוט תזרוק את קובץ ה־JAR שלו לתיקיית <code>mods</code>
+        והוא יעבוד אוטומטית בפעם הבאה שתפעיל את המשחק!
       </div>
-      </li>
+    </section>
 
-      <li>לאחר שהפכת ל־Nimrod_Herobrain, ניתן:<ul>
-        <li>לקבל מכה של ברק — הברק פוגע, אבל לא מוריד ממך חיים (אפשר לשמור השפעות אחרות כמו התבטלות אש או אפקטים לפי ההגדרות).</li>
-        <li>לייצר ברק באופן פעיל — לחץ לחצן ימני בעכבר (right-click) כאשר אינך מחזיק בלוק כדי לזמן ברק במקום המטרה.</li>
-      </ul></li>
-    </ol>
-  </section>
+    <footer>
+      <p>רוצה שאצור גם דוגמת קוד של התוסף (ל־Spigot/Paper) או קובץ קונפיגורציה לדוגמה? תגיד לי ונוסיף קבצים נוספים
+        לפרויקט.</p>
+    </footer>
+  </body>
 
-  <section class="card">
-    <h2>מאפיינים</h2>
-    <ul>
-      <li>מצב מיוחד "Nimrod_Herobrain" שמגן מפני נזק של ברק.</li>
-      <li>זימון ברק על ידי לחיצה ימנית כשהיד ריקה.</li>
-      <li>הודעות כניסה שמנחות את השחקן (ניתנות לתרגום/התאמה).</li>
-      <li>מקש הפעלה ברירת מחדל שניתן לשנות (להגדיר בקובץ config של התוסף).</li>
-      <li>אפשרויות קונפיגורציה: האם הברק יגרום לאפקטים נוספים (להכות שחקנים אחרים/לשרוף בלוקים), האם הברק ישמיע קול, ורמות הרשאה.</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>הנחיות התקנה קצרות (Server-side plugin)</h2>
-    <ol>
-      <li>העתק את קובץ התוסף (JAR) לתיקיית <code>plugins/</code> בשרת ה־Minecraft שלך.</li>
-      <li>הפעל/הדלק את השרת; בעת ההפעלה ייווצר קובץ קונפיגורציה בתיקיית התוסף.</li>
-      <li>במידת הצורך שנה את מקש ההפעלה (ברירת מחדל: <code>H</code>) ואת ההגדרות של נזק ברק/אפקטים בקובץ ה־config.</li>
-      <li>אתה מוכן — הצטרף לשרת ולחץ על המקש כדי להפעיל מצב Nimrod_Herobrain.</li>
-    </ol>
-  </section>
-
-  <section class="card">
-    <h2>הנחות (שחשוב לדעת)</h2>
-    <ul>
-      <li>הנחתי ברירת מחדל שהמקש לשינוי מצב יהיה <code>H</code>. אם תרצה מפתח/מימוש ספציפי (למשל שימוש במוד Client-side או keybind ספציפי), ציין זאת ואעדכן.</li>
-      <li>כאשר אומרים "לחצן ימני" הכוונה היא ל־right-click בעכבר; התכונה פעילה רק כאשר היד ריקה (לא מוחזק בלוק).</li>
-      <li>התוסף יכול לפעול כ־Server plugin (למשל Bukkit/Spigot/Paper). מימוש Client-side ידרוש מוד אחר.</li>
-    </ul>
-  </section>
-
-  <footer>
-    <p>רוצה שאצור גם דוגמת קוד של התוסף (ל־Spigot/Paper) או קובץ קונפיגורציה לדוגמה? תגיד לי ונוסיף קבצים נוספים לפרויקט.</p>
-  </footer>
-</body>
 </html>
