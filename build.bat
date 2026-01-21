@@ -35,17 +35,27 @@ echo.
 echo Copying build artifacts to output folder...
 
 REM Copy jars from example-button
-if exist "%ROOT_DIR%example-button\build\libs\*" (
+if exist "%ROOT_DIR%example-button\build\libs" (
   echo Copying artifacts from example-button...
-  copy /Y "%ROOT_DIR%example-button\build\libs\*" "%ROOT_DIR%output\" >nul 2>&1
+  for %%f in ("%ROOT_DIR%example-button\build\libs\*.jar") do (
+    copy /Y "%%f" "%ROOT_DIR%output\" >nul 2>&1
+  )
 )
 
 REM Copy jars from example-loom
-if exist "%ROOT_DIR%example-loom\build\libs\*" (
+if exist "%ROOT_DIR%example-loom\build\libs" (
   echo Copying artifacts from example-loom...
-  copy /Y "%ROOT_DIR%example-loom\build\libs\*" "%ROOT_DIR%output\" >nul 2>&1
+  for %%f in ("%ROOT_DIR%example-loom\build\libs\*.jar") do (
+    copy /Y "%%f" "%ROOT_DIR%output\" >nul 2>&1
+  )
 )
 
-echo Done. Artifacts (if any) are in "%ROOT_DIR%output".
+echo Done. Artifacts copied to "%ROOT_DIR%output".
+dir "%ROOT_DIR%output\*.jar" 2>nul | find ".jar" >nul && (
+  echo Files in output folder:
+  dir "%ROOT_DIR%output\*.jar"
+) || (
+  echo No JAR files found in output folder.
+)
 ENDLOCAL
 exit /b %ERRORLEVEL%
