@@ -29,13 +29,13 @@ if not exist "%ROOT_DIR%output" (
 echo Copying build artifacts to output folder...
 
 REM Copy any jars from build/libs (common Gradle output)
-if exist "%ROOT_DIR%example-loom\build\libs\*" (
-  copy /Y "%ROOT_DIR%example-loom\build\libs\*" "%ROOT_DIR%output\" >nul 2>&1
+if exist "%ROOT_DIR%example-button\build\libs\*" (
+  copy /Y "%ROOT_DIR%example-button\build\libs\*" "%ROOT_DIR%output\" >nul 2>&1
 )
 
-REM Also copy remapped jars from Loom's remapped_working cache if present
-@REM if exist "%ROOT_DIR%example-loom\build\loom-cache\remapped_working\*" (
-@REM   copy /Y "%ROOT_DIR%example-loom\build\loom-cache\remapped_working\*" "%ROOT_DIR%output\" >nul 2>&1
+REM Also copy remapped jars from button's remapped_working cache if present
+@REM if exist "%ROOT_DIR%example-button\build\button-cache\remapped_working\*" (
+@REM   copy /Y "%ROOT_DIR%example-button\build\button-cache\remapped_working\*" "%ROOT_DIR%output\" >nul 2>&1
 @REM )
 
 echo Done. Artifacts (if any) are in "%ROOT_DIR%output".
