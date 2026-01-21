@@ -1,2 +1,2 @@
 @echo off
-explorer "C:\Users\chenp\AppData\Roaming\.minecraft"
+explorer "C:\Users\chenp\AppData\Roaming\.minecraft/mods"
