@@ -34,9 +34,9 @@ if exist "%ROOT_DIR%example-loom\build\libs\*" (
 )
 
 REM Also copy remapped jars from Loom's remapped_working cache if present
-if exist "%ROOT_DIR%example-loom\build\loom-cache\remapped_working\*" (
-  copy /Y "%ROOT_DIR%example-loom\build\loom-cache\remapped_working\*" "%ROOT_DIR%output\" >nul 2>&1
-)
+@REM if exist "%ROOT_DIR%example-loom\build\loom-cache\remapped_working\*" (
+@REM   copy /Y "%ROOT_DIR%example-loom\build\loom-cache\remapped_working\*" "%ROOT_DIR%output\" >nul 2>&1
+@REM )
 
 echo Done. Artifacts (if any) are in "%ROOT_DIR%output".
 ENDLOCAL
