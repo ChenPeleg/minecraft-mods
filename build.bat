@@ -1,21 +1,21 @@
 @echo off
-REM build.bat - build the example-loom Gradle project and copy artifacts to output/
+REM build.bat - build the example-button Gradle project and copy artifacts to output/
 
 REM Save the directory of this script (includes trailing backslash)
 SETLOCAL
 set ROOT_DIR=%~dp0
 
-pushd "%ROOT_DIR%example-loom" 2>nul || (
-  echo Failed to change directory to "%ROOT_DIR%example-loom". Ensure the folder exists.
+pushd "%ROOT_DIR%example-button" 2>nul || (
+  echo Failed to change directory to "%ROOT_DIR%example-button". Ensure the folder exists.
   ENDLOCAL
   exit /b 1
 )
 
 if exist ".\gradlew.bat" (
-  echo Running Gradle wrapper in example-loom...
+  echo Running Gradle wrapper in example-button...
   call ".\gradlew.bat" build %*
 ) else (
-  echo gradlew.bat not found in example-loom. Attempting to run "gradlew" from PATH...
+  echo gradlew.bat not found in example-button. Attempting to run "gradlew" from PATH...
   call gradlew build %*
 )
 
