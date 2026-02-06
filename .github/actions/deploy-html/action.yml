@@ -1,0 +1,32 @@
+name: Deploy HTML Prep
+
+description: Prepare static HTML for GitHub Pages deployment.
+
+inputs:
+  source:
+    description: Path to the HTML file to publish.
+    required: false
+    default: docs/minecraft-plugin-hebrew.html
+  output:
+    description: Directory to place the published site.
+    required: false
+    default: dist
+
+runs:
+  using: composite
+  steps:
+    - name: Prepare output directory
+      shell: bash
+      run: |
+        set -euo pipefail
+        mkdir -p "${{ inputs.output }}"
+    - name: Copy HTML as index
+      shell: bash
+      run: |
+        set -euo pipefail
+        cp "${{ inputs.source }}" "${{ inputs.output }}/index.html"
+    - name: Disable Jekyll
+      shell: bash
+      run: |
+        set -euo pipefail
+        touch "${{ inputs.output }}/.nojekyll"
