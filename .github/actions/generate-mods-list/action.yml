@@ -1,0 +1,84 @@
+name: Generate Mods List
+
+description: Scans mods folder and injects mod list into HTML before תקציר section.
+
+inputs:
+  mods-folder:
+    description: Path to the mods folder to scan.
+    required: false
+    default: mods
+  html-file:
+    description: Path to the HTML file to modify.
+    required: false
+    default: docs/minecraft-plugin-hebrew.html
+
+runs:
+  using: composite
+  steps:
+    - name: Generate mods list and inject into HTML
+      shell: bash
+      run: |
+        set -euo pipefail
+        
+        MODS_FOLDER="${{ inputs.mods-folder }}"
+        HTML_FILE="${{ inputs.html-file }}"
+        
+        echo "Scanning mods folder: $MODS_FOLDER"
+        
+        # Find all .jar files in the mods folder
+        JAR_FILES=$(find "$MODS_FOLDER" -maxdepth 1 -name "*.jar" -type f | sort)
+        
+        if [ -z "$JAR_FILES" ]; then
+          echo "No JAR files found in $MODS_FOLDER"
+          MOD_LIST_HTML="<li>אין מודים זמינים כרגע</li>"
+        else
+          echo "Found JAR files:"
+          MOD_LIST_HTML=""
+          while IFS= read -r jar_file; do
+            filename=$(basename "$jar_file")
+            echo "  - $filename"
+            MOD_LIST_HTML="${MOD_LIST_HTML}<li><code>$filename</code></li>"
+          done <<< "$JAR_FILES"
+        fi
+        
+        # Create the new card HTML
+        NEW_CARD=$(cat <<EOF
+    <section class="card">
+      <h2>רשימת מודים זמינים</h2>
+      <p>המודים הבאים זמינים להורדה:</p>
+      <ul>
+        ${MOD_LIST_HTML}
+      </ul>
+    </section>
+
+EOF
+)
+        
+        # Create a temporary file
+        TEMP_FILE=$(mktemp)
+        
+        # Insert the new card before the "תקציר" section
+        # We look for the opening tag of the section that contains תקציר
+        awk -v new_card="$NEW_CARD" '
+        /<section class="card">/ {
+          # Store the line
+          line = $0
+          # Read the next line
+          getline next_line
+          # Check if next section has תקציר
+          if (next_line ~ /<h2>תקציר<\/h2>/) {
+            # Print the new card before this section
+            print new_card
+          }
+          # Print both lines
+          print line
+          print next_line
+          next
+        }
+        { print }
+        ' "$HTML_FILE" > "$TEMP_FILE"
+        
+        # Replace the original file
+        mv "$TEMP_FILE" "$HTML_FILE"
+        
+        echo "Successfully injected mods list into $HTML_FILE"
