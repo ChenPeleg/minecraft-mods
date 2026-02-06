@@ -26,9 +26,9 @@ jobs:
         with:
           source: docs/minecraft-plugin-hebrew.html
           output: dist
-      - name : List all files
+      - name : List all files in public
         run: |
-          ls -R dist      
+          ls -R dist/public      
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
