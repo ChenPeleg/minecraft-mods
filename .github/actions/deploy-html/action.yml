@@ -33,6 +33,10 @@ runs:
           mkdir -p "${{ inputs.output }}/public"
           cp -R output/. "${{ inputs.output }}/public/"
         fi
+        if [[ -d "docs" ]]; then
+          mkdir -p "${{ inputs.output }}/public"
+          cp -R docs/. "${{ inputs.output }}/public/"
+        fi
     - name: Disable Jekyll
       shell: bash
       run: |
