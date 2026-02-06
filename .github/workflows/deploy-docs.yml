@@ -21,6 +21,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Generate mods list
+        uses: ./.github/actions/generate-mods-list
+        with:
+          mods-folder: mods
+          html-file: docs/minecraft-plugin-hebrew.html
       - name: Prepare site
         uses: ./.github/actions/deploy-html
         with:
