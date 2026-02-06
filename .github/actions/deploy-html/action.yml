@@ -25,17 +25,16 @@ runs:
       run: |
         set -euo pipefail
         cp "${{ inputs.source }}" "${{ inputs.output }}/index.html"
-    - name: Copy output assets to public
+    - name: Copy output assets
       shell: bash
       run: |
         set -euo pipefail
         if [[ -d "output" ]]; then
-          mkdir -p "${{ inputs.output }}/public"
-          cp -R output/. "${{ inputs.output }}/public/"
+          cp -R output/. "${{ inputs.output }}/"
         fi
+        # Copy image assets from docs to the output root
         if [[ -d "docs" ]]; then
-          mkdir -p "${{ inputs.output }}/public"
-          cp -R docs/. "${{ inputs.output }}/public/"
+          find docs -type f \( -name "*.svg" -o -name "*.webp" -o -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.gif" \) -exec cp {} "${{ inputs.output }}/" \;
         fi
     - name: Disable Jekyll
       shell: bash
