@@ -1,0 +1,32 @@
+// Root build script for building all sub-projects
+
+allprojects {
+    // Apply common configurations to all projects
+}
+
+subprojects {
+    // Configurations specific to sub-projects
+}
+
+// Task to build all sub-projects
+task buildAll {
+    description = 'Build all sub-projects'
+    dependsOn ':example-button:build', ':example-loom:build'
+}
+
+// Task to display all sub-projects
+task listSubprojects {
+    description = 'List all sub-projects'
+    doLast {
+        println "Sub-projects:"
+        subprojects.each {
+            println "  - ${it.name}"
+        }
+    }
+}
+
+// Make 'build' depend on building all sub-projects
+task build {
+    description = 'Build all sub-projects (default task)'
+    dependsOn buildAll
+}
