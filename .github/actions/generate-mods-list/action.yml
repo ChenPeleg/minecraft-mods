@@ -25,20 +25,26 @@ runs:
         
         echo "Scanning mods folder: $MODS_FOLDER"
         
-        # Find all .jar files in the mods folder
-        JAR_FILES=$(find "$MODS_FOLDER" -maxdepth 1 -name "*.jar" -type f | sort)
-        
-        if [ -z "$JAR_FILES" ]; then
-          echo "No JAR files found in $MODS_FOLDER"
+        # Check if mods folder exists
+        if [ ! -d "$MODS_FOLDER" ]; then
+          echo "Warning: Mods folder does not exist: $MODS_FOLDER"
           MOD_LIST_HTML="<li>אין מודים זמינים כרגע</li>"
         else
-          echo "Found JAR files:"
-          MOD_LIST_HTML=""
-          while IFS= read -r jar_file; do
-            filename=$(basename "$jar_file")
-            echo "  - $filename"
-            MOD_LIST_HTML="${MOD_LIST_HTML}<li><code>$filename</code></li>"
-          done <<< "$JAR_FILES"
+          # Find all .jar files in the mods folder
+          JAR_FILES=$(find "$MODS_FOLDER" -maxdepth 1 -name "*.jar" -type f | sort)
+          
+          if [ -z "$JAR_FILES" ]; then
+            echo "No JAR files found in $MODS_FOLDER"
+            MOD_LIST_HTML="<li>אין מודים זמינים כרגע</li>"
+          else
+            echo "Found JAR files:"
+            MOD_LIST_HTML=""
+            while IFS= read -r jar_file; do
+              filename=$(basename "$jar_file")
+              echo "  - $filename"
+              MOD_LIST_HTML="${MOD_LIST_HTML}<li><code>$filename</code></li>"
+            done <<< "$JAR_FILES"
+          fi
         fi
         
         # Create the new card HTML
@@ -81,4 +87,10 @@ EOF
         # Replace the original file
         mv "$TEMP_FILE" "$HTML_FILE"
         
-        echo "Successfully injected mods list into $HTML_FILE"
+        # Verify the card was inserted
+        if grep -q "רשימת מודים זמינים" "$HTML_FILE"; then
+          echo "Successfully injected mods list into $HTML_FILE"
+        else
+          echo "Error: Failed to inject mods list - תקציר section not found"
+          exit 1
+        fi
